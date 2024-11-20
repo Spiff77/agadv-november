@@ -11,7 +11,6 @@ const app = wsServer.app;
 
 const clients: MessageWs[] = [];
 
-
 app.ws('/ws', (ws: WebSocket, req: Request) => {
     ws.on('message', (msg: string) => {
         const obj = JSON.parse(msg);
