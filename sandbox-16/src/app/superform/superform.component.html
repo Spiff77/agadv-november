@@ -1,0 +1,30 @@
+<p>superform works!</p>
+<form [formGroup]="myForm">
+  <div>
+    <label for="firstname">First Name</label>
+    <input type="text" id="firstname" formControlName="firstName">
+  </div>
+    <fieldset formGroupName="address">
+      <legend>Address</legend>
+      <div>
+        <label for="streetName">StreetName</label>
+        <input type="text" id="streetName" formControlName="streetName">
+      </div>
+      <div>
+        <label for="streetNumber">StreetNumber</label>
+        <input type="text" id="streetNumber" formControlName="streetNumber">
+      </div>
+    </fieldset>
+
+  <fieldset formArrayName="favColors">
+    <legend>Colors</legend>
+    <div *ngFor="let color of getColorFormArray().controls; let i = index">
+      <input type="text" [formControlName]="i"><span (click)="removeColor(i)">[x]</span>
+    </div>
+    <button (click)="addColor()">Add color</button>
+  </fieldset>
+
+</form>
+<pre>
+  {{myForm.value | json}}
+</pre>
