@@ -3,7 +3,7 @@ import {Message} from '../../../../../shared/model/user.message';
 import {FormsModule} from '@angular/forms';
 import {CardModule} from 'primeng/card';
 import {Observable} from 'rxjs';
-import {WsService} from '../../ws.service';
+import {CHANNEL, WsService} from '../../ws.service';
 
 @Component({
   selector: 'app-music',
@@ -13,6 +13,8 @@ import {WsService} from '../../ws.service';
     CardModule
   ],
   providers:[
+    WsService,
+    {provide:CHANNEL, useValue: 'MUSIC'}
   ],
   templateUrl: './music.component.html',
   styleUrl: './music.component.scss'
