@@ -23,10 +23,14 @@ import {AddComponent} from './components/dialog/album/add/add.component';
 import {DetailComponent} from './components/dialog/album/detail/detail.component';
 import { CommentsComponent } from './components/albums/comments/comments.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { AlbumAddComponent } from './components/albums/album-add/album-add.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 const routes: Routes = [
   {path: 'shop', component: AlbumListComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'add', component: AlbumAddComponent},
   {path: '',  redirectTo: '/home', pathMatch: 'full'},
 ];
 @NgModule({
@@ -37,26 +41,29 @@ const routes: Routes = [
         HomeComponent,
         AddComponent,
         DetailComponent,
-        CommentsComponent
+        CommentsComponent,
+        AlbumAddComponent
     ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatProgressBarModule,
-        MatTableModule,
-        MatToolbarModule,
-        MatDialogModule,
-        MatBadgeModule,
-        HttpClientModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatCardModule,
-        MatIconModule,
-        RouterModule.forRoot(routes),
-        MatChipsModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatBadgeModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatIconModule,
+    RouterModule.forRoot(routes),
+    MatChipsModule,
+    ReactiveFormsModule,
+    MatInputModule
+  ],
     providers: [],
     exports: [
         CommentsComponent,
