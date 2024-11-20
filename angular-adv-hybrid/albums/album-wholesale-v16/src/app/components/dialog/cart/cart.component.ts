@@ -1,11 +1,11 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {AlbumCart, CartService} from '../../../services/cart.service';
-import {Album} from '../../../model/album.model';
-import {concatMap, finalize, interval, map, mergeMap, of, Subject, switchAll, switchMap, takeWhile, tap} from 'rxjs';
+import {interval, map, mergeMap, Subject, takeWhile} from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
@@ -13,6 +13,8 @@ export class CartComponent implements OnInit {
   cartservice = inject(CartService);
   cart:AlbumCart[] = this.cartservice.cartAlbums;
   displayedColumns: string[] = ['id', 'name', 'artist', 'price', 'quantity', 'totalprice'];
+
+  cd = inject(ChangeDetectorRef)
 
 
   startProcess$ = new Subject<number>()
@@ -33,6 +35,7 @@ export class CartComponent implements OnInit {
     ).subscribe(v => {
       this.processId = v.id
       this.processProgression = v.progression
+      this.cd.detectChanges()
     })
   }
 
