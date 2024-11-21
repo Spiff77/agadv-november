@@ -1,4 +1,9 @@
 <h2>Counter:</h2>
 <p>
-  0
+  {{count$ | async}}
 </p>
+<div>
+  <button (click)="decrement()">-</button>
+  <button (click)="reset()">0</button>
+  <button (click)="increment()">+</button>
+</div>
