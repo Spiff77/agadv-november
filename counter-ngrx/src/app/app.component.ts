@@ -10,5 +10,14 @@ type Person = {id: number, fname: string, age: number}
 export class AppComponent {
   title = 'counter-ngrx';
 
+  p: Person = {id: 10, fname: 'Jean', age:20}
+  t = [10,20,30]
+
+  constructor() {
+    const p2 = {...this.p, fname: 'Jerome'}
+    const t2 = [...this.t, 40]
+    console.log(p2)
+  }
+
 
 }
