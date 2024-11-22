@@ -29,11 +29,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import {appConfig} from './app/app.config';
+import {AlbumAddComponent} from './app/components/albums/album-add/album-add.component';
 
-
-
-
-
-
-bootstrapApplication(AppComponent,appConfig )
+const routes: Routes = [
+  {path: 'shop', component: AlbumListComponent},
+  {path: 'add', component: AlbumAddComponent},
+  {path: 'home', component: HomeComponent},
+  {path: '',  redirectTo: '/home', pathMatch: 'full'},
+];
+bootstrapApplication(AppComponent,appConfig)
   .catch(err => console.error(err));
