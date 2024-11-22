@@ -1,0 +1,11 @@
+<p>c1 works!</p>
+
+<div *ngFor="let t of tab">{{t}}</div>
+
+{{name()}}: {{age()}} (x2: {{doubleAge()}})
+<button (click)="incrementAge()">Happy Birthday</button>
+<button (click)="resetTo30()">got back in time</button>
+
+<input type="text" [(ngModel)]="name">
+
+<app-c2 name="Hicham"></app-c2>

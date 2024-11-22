@@ -1,0 +1,12 @@
+<h1>Sandbox 18</h1>
+<app-c1></app-c1>
+
+<form [formGroup]="theForm">
+<app-custom-form formControlName="username"></app-custom-form>
+<app-custom-form-container></app-custom-form-container>
+</form>
+
+
+<pre>
+  APP:{{theForm.value | json}} <br>
+</pre>
